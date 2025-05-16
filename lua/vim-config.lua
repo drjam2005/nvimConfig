@@ -11,7 +11,7 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 vim.keymap.set('i', '<C-h>', '<C-Left')
 vim.keymap.set('i', '<C-j>', '<Down>')
 vim.keymap.set('i', '<C-k>', '<Up>')
-vim.keymap.set('i', '<C-l>', '<C-Right')
+vim.keymap.set('i', '<C-l>', '<C-Right>')
 
 vim.opt.wrap = false
 vim.keymap.set('n', 'L', 'zl')
