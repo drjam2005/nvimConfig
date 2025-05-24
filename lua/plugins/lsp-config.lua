@@ -28,6 +28,7 @@ return {
 	    local lspconfig = require("lspconfig")
 	    lspconfig.lua_ls.setup({ capabilities = capa})
 	    lspconfig.clangd.setup({ capabilities = capa})
+	    lspconfig.jdtls.setup({capabilities = capa})
 	
 	    vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 	    vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
