@@ -24,5 +24,9 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("vim-config")
 require("lazy").setup("plugins")
-
 -- vim.cmd("colorscheme tokyonight-night")
+local todo_float = require("todofloat")
+todo_float.setup({
+    target_file = "~/Notes/Notes1.md"
+})
+
