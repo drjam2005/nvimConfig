@@ -11,6 +11,7 @@ vim.pack.add({
     { src = "https://github.com/akinsho/toggleterm.nvim", },
     { src = "https://github.com/folke/zen-mode.nvim", },
     { src = "https://github.com/mbbill/undotree", },
+    { src = "https://github.com/echasnovski/mini.move", },
 })
 
 -- treesitter
@@ -50,13 +51,16 @@ require("toggleterm").setup({
 })
 
 -- treesitter
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.configs").setup({
   ensure_installed = { "lua", "c", "cpp", "python", "javascript" }, -- parsers
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-}
+})
+
+-- mini.move
+require("mini.move").setup({ })
 
 -- vimtex
 vim.g.vimtex_view_method = 'zathura'
