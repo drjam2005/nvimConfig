@@ -31,6 +31,12 @@ return {
 	    lspconfig.jdtls.setup({capabilities = capa})
 	    lspconfig.pylsp.setup({capabilities = capa})
 	    lspconfig.bashls.setup({capabilities = capa})
+	    lspconfig.ts_ls.setup({capabilities = capa})
+	    lspconfig.ast_grep.setup({capabilities = capa})
+	    lspconfig.biome.setup({capabilities = capa})
+	    lspconfig.eslint.setup({capabilities = capa})
+	    lspconfig.denols.setup({capabilities = capa})
+	    lspconfig.html.setup({capabilities = capa})
 
 	    vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 	    vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})

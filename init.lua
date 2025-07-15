@@ -30,3 +30,13 @@ todo_float.setup({
     target_file = "~/Notes/Notes1.md"
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "netrw",
+  callback = function()
+    local opts = { buffer = true, noremap = true, silent = true }
+    vim.keymap.set("n", "h", "-^", opts)
+    vim.keymap.set("n", "l", "<CR>", opts)
+  end,
+})
+
+vim.cmd("set guicursor=n-v-c-sm:block")

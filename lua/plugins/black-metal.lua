@@ -25,6 +25,7 @@ return -- Using lazy.nvim
 		String = { fg = "#99b699" },
 		Number = { fg = "#5c7585" },
 		cppFloat = { fg = "#527776" },
+		cppConstant = { fg = "#99aacc" },
 		Conditional = { fg = "#674f50" },
 		cRepeat = { fg = "#876f70"},
 		["@property"] = { fg = "#645f5c" },
