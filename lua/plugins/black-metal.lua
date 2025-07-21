@@ -6,17 +6,17 @@ return -- Using lazy.nvim
     config = function()
 	require("black-metal").setup({
 	    highlights = {
-		Normal = { bg = "#101010" },
-		NormalNC = { bg = "#101010" },
-		NormalFloat = { bg = "#101010" },
-		Pmenu = { bg = "#101010" },
-		VertSplit = { bg = "#101010" },
-		StatusLine = { bg = "#101010" },
-		SignColumn = { bg = "#101010" },
-		LineNr = { bg = "#101010" },
-		CursorLineNr = { bg = "#101010" },
-		TelescopeNormal = { bg = "#101010" },
-		FloatBorder = { bg = "#101010" },
+		Normal = { bg = "#151515" },
+		NormalNC = { bg = "#151515" },
+		NormalFloat = { bg = "#151515" },
+		Pmenu = { bg = "#151515" },
+		VertSplit = { bg = "#151515" },
+		StatusLine = { bg = "#151515" },
+		SignColumn = { bg = "#151515" },
+		LineNr = { bg = "#151515" },
+		CursorLineNr = { bg = "#151515" },
+		TelescopeNormal = { bg = "#151515" },
+		FloatBorder = { bg = "#151515" },
 		-- other stuff
 		DiagnosticUnderlineError = { sp = "#856666"},
 		DiagnosticError = { fg = "#856666"},
