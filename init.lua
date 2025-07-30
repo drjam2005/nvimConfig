@@ -5,6 +5,7 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/vague2k/vague.nvim" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/mikavilpas/yazi.nvim", },
     { src = "https://github.com/lervag/vimtex" },
     { src = "https://github.com/akinsho/toggleterm.nvim", },
@@ -25,6 +26,15 @@ require("trouble").setup({
 require("toggleterm").setup({
     direction = 'horizontal',
 })
+
+-- treesitter
+require("nvim-treesitter.configs").setup {
+  ensure_installed = { "lua", "c", "cpp", "python", "javascript" }, -- parsers
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
 
 -- vimtex
 vim.g.vimtex_view_method = 'zathura'
