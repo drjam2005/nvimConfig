@@ -1,42 +1,32 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-    if vim.v.shell_error ~= 0 then
-	vim.api.nvim_echo({
-	    { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-	    { out, "WarningMsg" },
-	    { "\nPress any key to exit..." },
-	}, true, {})
-	vim.fn.getchar()
-	os.exit(1)
-    end
-end
-vim.opt.rtp:prepend(lazypath)
-
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
--- Setup lazy.nvim
-require("vim-config")
-require("lazy").setup("plugins")
--- vim.cmd("colorscheme tokyonight-night")
-local todo_float = require("todofloat")
-todo_float.setup({
-    target_file = "~/Notes/Notes1.md"
+vim.cmd('luafile ~/.config/nvim/bindings.lua')
+vim.pack.add({
+    { src = "https://github.com/rose-pine/neovim" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/mikavilpas/yazi.nvim", },
+    { src = "https://github.com/lervag/vimtex" },
+    { src = "https://github.com/akinsho/toggleterm.nvim", },
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "netrw",
-  callback = function()
-    local opts = { buffer = true, noremap = true, silent = true }
-    vim.keymap.set("n", "h", "-^", opts)
-    vim.keymap.set("n", "l", "<CR>", opts)
-  end,
+-- yazi
+require("yazi").setup({
+    open_for_directories = true,
 })
 
-vim.cmd("set guicursor=n-v-c-sm:block")
+-- alt term
+require("toggleterm").setup({
+    direction = 'horizontal',
+})
+vim.keymap.set('n', '<leader>t', "<cmd>Yazi<cr>")
+vim.keymap.set("n", "<A-t>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Terminal" })
+vim.keymap.set('i', '<C-Space>', "<C-x><C-o>", { noremap = true})
+vim.lsp.enable({
+    "lua_ls",
+    "texlab",
+    "clangd",
+    "pylsp",
+    "jdtls",
+})
+
+vim.cmd("colorscheme rose-pine")
+vim.cmd("hi Normal guibg=NONE")
