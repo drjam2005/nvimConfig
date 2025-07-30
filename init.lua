@@ -1,16 +1,24 @@
 vim.cmd('luafile ~/.config/nvim/bindings.lua')
 vim.pack.add({
     { src = "https://github.com/rose-pine/neovim" },
+    { src = "https://github.com/folke/trouble.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/vague2k/vague.nvim" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/mikavilpas/yazi.nvim", },
     { src = "https://github.com/lervag/vimtex" },
     { src = "https://github.com/akinsho/toggleterm.nvim", },
+    { src = "https://github.com/folke/zen-mode.nvim", },
 })
 
 -- yazi
 require("yazi").setup({
     open_for_directories = true,
+})
+
+-- trouble
+require("trouble").setup({
+    cmd = "Trouble",
 })
 
 -- alt term
@@ -32,9 +40,9 @@ vim.lsp.enable({
     "clangd",
     "pylsp",
     "jdtls",
-    "ast-grep",
     "biome",
+    "ts_ls",
 })
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme vague")
 vim.cmd("hi Normal guibg=NONE")
