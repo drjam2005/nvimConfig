@@ -12,6 +12,31 @@ vim.pack.add({
     { src = "https://github.com/folke/zen-mode.nvim", },
 })
 
+
+-- clangd
+-- ============= PLUGIN SETUP ==================
+-- Treesitter
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "cpp" },
+  highlight = { enable = true },
+}
+
+-- ================== LSP ======================
+local lspconfig = require('lspconfig')
+
+lspconfig.clangd.setup({
+  cmd = {
+    "clangd",
+    "--header-insertion=never",    -- cleaner includes
+    "--query-driver=/usr/bin/g++", -- so it finds system includes properly
+  },
+  on_attach = function(client, bufnr)
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  end,
+})
+
+
 -- yazi
 require("yazi").setup({
     open_for_directories = true,
@@ -56,3 +81,4 @@ vim.lsp.enable({
 
 vim.cmd("colorscheme vague")
 vim.cmd("hi Normal guibg=NONE")
+vim.cmd("hi SignColumn guibg=NONE")

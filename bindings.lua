@@ -23,7 +23,6 @@ vim.keymap.set('i', '<C-k>', '<Up>', opts)
 vim.keymap.set('i', '<C-l>', '<C-Right>', opts)
 
 vim.opt.wrap = false
-vim.o.winborder = "rounded"
 vim.o.signcolumn = "yes"
 vim.keymap.set('n', 'L', 'zl', opts)
 vim.keymap.set('n', 'H', 'zh', opts)
