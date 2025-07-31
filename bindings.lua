@@ -22,7 +22,7 @@ vim.keymap.set('i', '<C-j>', '<Down>', opts)
 vim.keymap.set('i', '<C-k>', '<Up>', opts)
 vim.keymap.set('i', '<C-l>', '<C-Right>', opts)
 
-vim.opt.wrap = false
+vim.o.wrap = false
 vim.o.signcolumn = "yes"
 vim.keymap.set('n', 'L', 'zl', opts)
 vim.keymap.set('n', 'H', 'zh', opts)
