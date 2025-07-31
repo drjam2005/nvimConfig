@@ -10,25 +10,22 @@ vim.pack.add({
     { src = "https://github.com/lervag/vimtex" },
     { src = "https://github.com/akinsho/toggleterm.nvim", },
     { src = "https://github.com/folke/zen-mode.nvim", },
+    { src = "https://github.com/mbbill/undotree", },
 })
 
-
--- clangd
--- ============= PLUGIN SETUP ==================
--- Treesitter
+-- treesitter
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "cpp" },
   highlight = { enable = true },
 }
 
--- ================== LSP ======================
+-- lspconfig
 local lspconfig = require('lspconfig')
-
 lspconfig.clangd.setup({
   cmd = {
     "clangd",
-    "--header-insertion=never",    -- cleaner includes
-    "--query-driver=/usr/bin/g++", -- so it finds system includes properly
+    "--header-insertion=never",
+    "--query-driver=/usr/bin/g++",
   },
   on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
