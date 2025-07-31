@@ -79,3 +79,4 @@ vim.lsp.enable({
 vim.cmd("colorscheme vague")
 vim.cmd("hi Normal guibg=NONE")
 vim.cmd("hi SignColumn guibg=NONE")
+vim.cmd("set guicursor=n-v-c-sm:block")
