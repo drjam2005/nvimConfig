@@ -22,6 +22,27 @@ require'nvim-treesitter.configs'.setup {
 
 -- lspconfig
 local lspconfig = require('lspconfig')
+
+lspconfig.pyright.setup({
+  on_attach = function(client, bufnr)
+    -- basic keymaps
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  end,
+})
+lspconfig.tinymist.setup({
+  on_attach = function(client, bufnr)
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  end,
+  settings = {
+    exportPdf = "onType",
+    pdfPath = "output.pdf",
+  },
+})
+
 lspconfig.clangd.setup({
   cmd = {
     "clangd",
@@ -78,6 +99,7 @@ vim.lsp.enable({
     "biome",
     "ts_ls",
     "pyright",
+    "tinymist",
 })
 
 vim.cmd("colorscheme vague")
