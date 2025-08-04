@@ -31,18 +31,13 @@ lspconfig.pyright.setup({
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   end,
 })
-lspconfig.tinymist.setup({
-  on_attach = function(client, bufnr)
-    local opts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  end,
-  settings = {
-    exportPdf = "onType",
-    pdfPath = "output.pdf",
-  },
-})
 
+vim.lsp.config["tinymist"] = {
+    cmd = { "tinymist" },
+    filetypes = { "typst" },
+    settings = {
+    }
+}
 lspconfig.clangd.setup({
   cmd = {
     "clangd",

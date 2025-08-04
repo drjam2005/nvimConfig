@@ -1,6 +1,7 @@
 vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
 vim.cmd("set number")
+vim.cmd("command W w")
 vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
@@ -27,7 +28,6 @@ vim.o.signcolumn = "yes"
 vim.keymap.set('n', 'L', 'zl', opts)
 vim.keymap.set('n', 'H', 'zh', opts)
 
-vim.keymap.set('i', '<C-c>', '"+y')
 vim.keymap.set('n', '<C-c>', '"+y')
 vim.keymap.set('v', '<C-c>', '"+y')
 vim.cmd("set scrolloff=5")
