@@ -34,7 +34,6 @@ lspconfig.clangd.setup({
   end,
 })
 
-
 -- yazi
 require("yazi").setup({
     open_for_directories = true,
@@ -78,6 +77,7 @@ vim.lsp.enable({
     "jdtls",
     "biome",
     "ts_ls",
+    "pyright",
 })
 
 vim.cmd("colorscheme vague")
