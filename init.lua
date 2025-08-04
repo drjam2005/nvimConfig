@@ -12,6 +12,7 @@ vim.pack.add({
     { src = "https://github.com/folke/zen-mode.nvim", },
     { src = "https://github.com/mbbill/undotree", },
     { src = "https://github.com/echasnovski/mini.move", },
+    { src = "https://github.com/mason-org/mason.nvim", },
 })
 
 -- treesitter
@@ -76,6 +77,9 @@ require("nvim-treesitter.configs").setup({
 
 -- mini.move
 require("mini.move").setup({ })
+
+-- mason
+require("mason").setup({})
 
 -- vimtex
 vim.g.vimtex_view_method = 'zathura'
