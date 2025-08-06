@@ -25,8 +25,8 @@ vim.keymap.set('i', '<C-l>', '<C-Right>', opts)
 
 vim.o.wrap = false
 vim.o.signcolumn = "yes"
-vim.keymap.set('n', 'L', 'zl', opts)
-vim.keymap.set('n', 'H', 'zh', opts)
+vim.keymap.set('n', 'L', 'zlzlzl', opts)
+vim.keymap.set('n', 'H', 'zhzhzh', opts)
 
 vim.keymap.set('n', '<C-c>', '"+y')
 vim.keymap.set('v', '<C-c>', '"+y')
