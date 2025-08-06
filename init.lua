@@ -87,8 +87,15 @@ vim.g.vimtex_view_forward_search_on_start = 0
 vim.g.vimtex_compiler_latexmk = { aux_dir = '/home/james/.texfiles', build_dir = 'out'}
 
 vim.keymap.set('n', '<leader>t', "<cmd>Yazi<cr>")
-vim.keymap.set("n", "<A-t>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Terminal" })
 vim.keymap.set('i', '<C-Space>', "<C-x><C-o>", { noremap = true})
+vim.keymap.set('n', '<A-t>', function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 7)
+end)
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {noremap = true })
+
 vim.lsp.enable({
     "lua_ls",
     "texlab",
@@ -100,6 +107,7 @@ vim.lsp.enable({
     "pyright",
     "tinymist",
 })
+
 
 vim.cmd("colorscheme vague")
 vim.cmd("hi Normal guibg=NONE")
