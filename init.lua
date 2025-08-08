@@ -13,6 +13,7 @@ vim.pack.add({
     { src = "https://github.com/mbbill/undotree", },
     { src = "https://github.com/echasnovski/mini.move", },
     { src = "https://github.com/mason-org/mason.nvim", },
+    { src = "https://github.com/NStefan002/screenkey.nvim", },
 })
 
 -- treesitter
@@ -80,6 +81,24 @@ require("mini.move").setup({ })
 
 -- mason
 require("mason").setup({})
+
+-- screenkey
+require("screenkey").setup({
+    win_opts = {
+        row = vim.o.lines - vim.o.cmdheight - 1,
+        col = vim.o.columns - 1,
+        relative = "editor",
+        anchor = "SE",
+        width = 40,
+        height = 3,
+        border = "single",
+        title = "Screenkey",
+        title_pos = "center",
+        style = "minimal",
+        focusable = false,
+        noautocmd = true,
+    },
+})
 
 -- vimtex
 vim.g.vimtex_view_method = 'zathura'
