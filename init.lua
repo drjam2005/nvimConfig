@@ -119,7 +119,6 @@ vim.lsp.enable({
     "lua_ls",
     "texlab",
     "clangd",
-    "pylsp",
     "jdtls",
     "biome",
     "ts_ls",
@@ -129,6 +128,9 @@ vim.lsp.enable({
 
 
 vim.cmd("colorscheme vague")
+if vim.env.TERM == "linux" then
+    vim.cmd("colorscheme slate")
+end
 vim.cmd("hi Normal guibg=NONE")
 vim.cmd("hi SignColumn guibg=NONE")
 vim.cmd("set guicursor=n-v-c-sm:block")

@@ -17,6 +17,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -36,6 +37,9 @@ set scrolloff=4
 set signcolumn=no
 
 colorscheme slate
+set background=dark
+let g:gruvbox_termcolors=256
+colorscheme gruvbox
 highlight Normal ctermfg=248 ctermbg=NONE
 highlight EndOfBuffer ctermbg=NONE
 highlight SignColumn ctermbg=NONE
