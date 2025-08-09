@@ -82,6 +82,13 @@ require("mini.move").setup({ })
 -- mason
 require("mason").setup({})
 
+-- zen-mode
+require("zen-mode").setup({
+    window = {
+	width = 0.7
+    }
+})
+
 -- screenkey
 require("screenkey").setup({
     win_opts = {
@@ -129,6 +136,9 @@ vim.lsp.enable({
 
 vim.cmd("colorscheme vague")
 if vim.env.TERM == "linux" then
+    vim.cmd("colorscheme slate")
+end
+if vim.env.TERM == "tmux_256color" then
     vim.cmd("colorscheme slate")
 end
 vim.cmd("hi Normal guibg=NONE")
