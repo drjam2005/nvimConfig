@@ -14,6 +14,7 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.move", },
     { src = "https://github.com/mason-org/mason.nvim", },
     { src = "https://github.com/NStefan002/screenkey.nvim", },
+    { src = "https://github.com/OXY2DEV/markview.nvim", },
 })
 
 -- treesitter
@@ -62,10 +63,6 @@ require("trouble").setup({
     cmd = "Trouble",
 })
 
--- alt term
-require("toggleterm").setup({
-    direction = 'horizontal',
-})
 
 -- treesitter
 require("nvim-treesitter.configs").setup({
@@ -82,11 +79,37 @@ require("mini.move").setup({ })
 -- mason
 require("mason").setup({})
 
+local toggleterm = require("toggleterm")
+local isTerm = false
+toggleterm.setup({
+      on_open = function()
+	isTerm = true
+      end, -- function to run when the terminal opens
+      on_close = function()
+	isTerm = false
+      end, -- function to run when the terminal closes
+})
 -- zen-mode
 require("zen-mode").setup({
     window = {
+	backdrop = 0.5,
 	width = 0.7
-    }
+    },
+    on_open = function(win)
+	if(isTerm) then
+	    toggleterm.toggle(1)
+	end
+	toggleterm.setup({
+	    start_in_insert = false,
+	    direction = 'float',
+	})
+    end,
+    on_close = function()
+	toggleterm.setup({
+	    start_in_insert = false,
+	    direction = 'horizontal',
+	})
+    end,
 })
 
 -- screenkey
@@ -114,12 +137,7 @@ vim.g.vimtex_compiler_latexmk = { aux_dir = '/home/james/.texfiles', build_dir =
 
 vim.keymap.set('n', '<leader>t', "<cmd>Yazi<cr>")
 vim.keymap.set('i', '<C-Space>', "<C-x><C-o>", { noremap = true})
-vim.keymap.set('n', '<A-t>', function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd("J")
-    vim.api.nvim_win_set_height(0, 7)
-end)
+vim.keymap.set('n', '<A-t>', "<CMD>ToggleTerm<CR>")
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {noremap = true })
 
 vim.lsp.enable({
