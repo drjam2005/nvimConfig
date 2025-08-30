@@ -1,9 +1,7 @@
 vim.cmd('luafile ~/.config/nvim/bindings.lua')
 vim.pack.add({
-    { src = "https://github.com/rose-pine/neovim" },
     { src = "https://github.com/folke/trouble.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
-    { src = "https://github.com/vague2k/vague.nvim" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/mikavilpas/yazi.nvim", },
@@ -15,6 +13,10 @@ vim.pack.add({
     { src = "https://github.com/mason-org/mason.nvim", },
     { src = "https://github.com/NStefan002/screenkey.nvim", },
     { src = "https://github.com/OXY2DEV/markview.nvim", },
+	{ src = "https://github.com/rose-pine/neovim" },
+	{ src = "https://github.com/vague2k/vague.nvim" },
+    { src = "https://github.com/ficd0/ashen.nvim", },
+    { src = "https://github.com/slugbyte/lackluster.nvim", },
 })
 
 -- treesitter
@@ -152,7 +154,8 @@ vim.lsp.enable({
 })
 
 
-vim.cmd("colorscheme vague")
+-- vim.cmd("colorscheme lackluster-dark")
+vim.cmd("colorscheme ashen")
 if vim.env.TERM == "linux" then
     vim.cmd("colorscheme slate")
 end
