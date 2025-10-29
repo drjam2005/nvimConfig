@@ -72,7 +72,8 @@ require("brainrot").setup( {
 		sound_enabled = true,  -- enable sounds
 		image_enabled = true,  -- enable images (needs image.nvim)
 
-		boom_volume = 50,      -- volume for vine boom sound (0..100)
+		--boom_volume = 50,      -- volume for vine boom sound (0..100)
+		boom_volume = 0,      -- volume for vine boom sound (0..100)
 		phonk_volume = 50,     -- volume for phonk sound (0..100)
 
 		boom_sound = nil,      -- custom boom sound path (e.g., "~/sounds/boom.ogg")
