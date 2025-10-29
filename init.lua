@@ -17,6 +17,9 @@ vim.pack.add({
 	{ src = "https://github.com/vague2k/vague.nvim" },
     { src = "https://github.com/ficd0/ashen.nvim", },
     { src = "https://github.com/slugbyte/lackluster.nvim", },
+	{ src = "https://github.com/Thiago4532/mdmath.nvim", },
+    { src = "https://github.com/sahaj-b/brainrot.nvim", },
+    { src = "https://github.com/3rd/image.nvim", },
 })
 
 -- treesitter
@@ -60,6 +63,23 @@ require("yazi").setup({
     open_for_directories = true,
 })
 
+require("brainrot").setup( {
+		disable_phonk = true,
+		phonk_time = 2.5,
+		block_input = true,    -- block input during phonk/overlay
+		dim_level = 60,        -- phonk overlay darkness 0..100
+
+		sound_enabled = true,  -- enable sounds
+		image_enabled = true,  -- enable images (needs image.nvim)
+
+		boom_volume = 50,      -- volume for vine boom sound (0..100)
+		phonk_volume = 50,     -- volume for phonk sound (0..100)
+
+		boom_sound = nil,      -- custom boom sound path (e.g., "~/sounds/boom.ogg")
+		phonk_dir = nil,       -- custom phonk folder path (e.g., "~/sounds/phonks")
+		image_dir = nil,       -- custom image folder path (e.g., "~/memes/images")
+	}
+)
 -- trouble
 require("trouble").setup({
     cmd = "Trouble",
@@ -114,6 +134,8 @@ require("zen-mode").setup({
     end,
 })
 
+require("image").setup()
+
 -- screenkey
 require("screenkey").setup({
     win_opts = {
@@ -155,7 +177,8 @@ vim.lsp.enable({
 
 
 -- vim.cmd("colorscheme lackluster-dark")
-vim.cmd("colorscheme ashen")
+-- vim.cmd("colorscheme ashen")
+vim.cmd("colorscheme retrobox")
 if vim.env.TERM == "linux" then
     vim.cmd("colorscheme slate")
 end
